@@ -2,25 +2,16 @@
 # 4/13/2020
 # Methods used for Exam 2's question
 
-# This method defines how the bubble sort works
-def bubble_sort(arr):
-    def swap(i, j):
-        arr[i], arr[j], arr[i]
-    n = len(arr)
-    swapped = True
 
-    x = -1
-    while swapped:
-        swapped = False
-        x = x+1
-        for i in range(1, n-x):
-            if arr[i - 1] > arr[i]:
-                swap(i - 1, i)
-                swapped = True
-    return arr
+# This method defines how the bubble sort works
+def bubble_sort(Sorting_List):
+    for i in range(len(Sorting_List)):
+        for j in range(len(Sorting_List) - 1):
+            if Sorting_List[j] > Sorting_List[j+1]:
+                Sorting_List[j], Sorting_List[j+1] = Sorting_List[j+1], Sorting_List[j]
+
 
 # Defines the selection sort method
-
 def selection_sort(arr):
     for i in range(len(arr)):
         minimum = i
@@ -36,6 +27,7 @@ def selection_sort(arr):
 
     return arr
 
+
 # Defines the insert sort method
 def insertion_sort(arr):
 
@@ -46,11 +38,12 @@ def insertion_sort(arr):
         while pos > 0 and arr[pos - 1] > cursor:
             # Moves the number down the list
             arr[pos] = arr[pos - 1]
-            pos = pos -1
+            pos = pos - 1
 
         arr[pos] = cursor
 
     return arr
+
 
 # defines how the merge_sort methods works
 def merge_sort(arr):
@@ -64,15 +57,16 @@ def merge_sort(arr):
     # Merges both sides together
     return merge(left, right, arr.copy())
 
+
 # This will define how the merge works
 def merge(left, right, merged):
 
     left_cursor, right_cursor = 0, 0
-    while left_cursor < len(left) and right_cursor <len(right):
+    while left_cursor < len(left) and right_cursor < len(right):
 
         # Sorts each and places them into the result
         if left[left_cursor] <= right[right_cursor]:
-            merged[left_cursor+right_cursor]=left[left_cursor]
+            merged[left_cursor+right_cursor] = left[left_cursor]
             left_cursor += 1
         else:
             merged[left_cursor + right_cursor] = right[right_cursor]
@@ -109,4 +103,3 @@ def quick_sort(array, begin=0, end=None):
         end = len(array) - 1
 
         return quick_sort_recursion(array, begin, end)
-
